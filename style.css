@@ -4,12 +4,12 @@
     width: 100%;
     height: 100%;
 }
-.card.selected .dorso{
+/*.card.selected .dorso{
     transform: rotateY(-90deg);
 }
 .card.selected .faccia{
     transform: rotateY(0deg);
-}
+}*/
 .dorso, .faccia{
     position: absolute;
     width: 100%;
@@ -21,6 +21,7 @@
     z-index: 10;
     transition: all 1s ease-in-out;
     background-image: url(quadratino.png);
+    backface-visibility: hidden;
 }
 .faccia{
     z-index: 1;
@@ -35,6 +36,8 @@
     width: 150px;
     margin: 10px;
     position: relative;
+    transition: all 1s ease-in-out;
+    transform-style: preserve-3d;
 }
 .column{
   display: flex;
@@ -95,4 +98,6 @@ body{
 .notClickable{
   pointer-events: none;
 }
-
+.card.selected{
+  transform: rotateY(180deg);
+}

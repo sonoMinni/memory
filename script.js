@@ -1,5 +1,6 @@
 let cards = document.querySelectorAll(".card");
-let classes = ["red", "green", "blue", "yellow", "orange", "purple"];
+let classes = ["red", "green", "blue", "yellow", "orange", "purple", "red", "green", "blue", "yellow", "orange", "purple"];
+let coloriUsciti = []
 let win = false;
 randomColor()
 for(let i = 0; i < cards.length; i++){
@@ -19,8 +20,6 @@ for(let i = 0; i < cards.length; i++){
                 }
             });
 }
-
-
 function getRandomInt(){
     let items = classes.length;
     let total = items - 1;
@@ -31,6 +30,8 @@ function randomColor(){
     let quadrati = document.querySelectorAll(".card");
     for(let i = 0; i < quadrati.length; i++){
         let quadratoDaColorare = quadrati[i];
+        let nextColor = getRandomInt()
+        coloriUsciti.push(nextColor);
         quadratoDaColorare.dataset.color = getRandomInt();
         quadrati[i] = document.querySelectorAll(".card[data-color='"+quadratoDaColorare.dataset.color+"']");
         if(quadrati[i].length > 2){
@@ -60,7 +61,3 @@ function checkWin(e){
         },1500)
     }
 }
-function twoElementsForClass(){
-    // just two quadratis with the same class
-}
-
